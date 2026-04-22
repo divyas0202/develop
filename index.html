@@ -16,12 +16,15 @@
       const email = document.getElementById("email").value;
 
       await fetch("https://develop-mx0u.onrender.com/add-user", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ name, email })
-      });
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    name: document.getElementById("name").value,
+    email: document.getElementById("email").value
+  })
+});
 
       alert("User added!");
     }

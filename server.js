@@ -40,11 +40,15 @@ const UserSchema = new mongoose.Schema({
 
   app.post("/add-user", async (req, res) => {
     try {
+      console.log("BODY RECEIVED:", req.body);
+  
       const user = new User(req.body);
       await user.save();
+  
       res.json(user);
     } catch (err) {
-      res.status(500).json(err);
+      console.error("ERROR:", err);
+      res.status(500).json({ error: err.message });
     }
   });
 
